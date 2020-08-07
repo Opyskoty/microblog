@@ -1,7 +1,6 @@
 import React from "react";
 
 import CommentCard from "./CommentCard";
-import { useSelector, shallowEqual } from "react-redux";
 import { Row, Container } from "reactstrap";
 
 function CommentList({ postId, comments }) {

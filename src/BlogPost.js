@@ -20,7 +20,7 @@ function BlogPost() {
     if (!post) {
       dispatch(loadPostFromApi(postId));
     }
-  }, [dispatch]);
+  }, [dispatch, post, postId]);
 
   if (!post) { return <Redirect to="/" /> }
 
