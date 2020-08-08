@@ -42,6 +42,16 @@ function BlogForm({ post = false, id = false, setEdit }) {
     <div className="BlogForm">
       <h3>New Post</h3>
       <Form onSubmit={handleSubmit}>
+      <FormGroup>
+        <Label for="category">Category</Label>
+        <Input type="select" name="category" id="category" value={formData.category} onChange={handleChange}>
+          <option>Cooking</option>
+          <option>Fitness</option>
+          <option>Books</option>
+          <option>Tech</option>
+          <option>Business</option>
+        </Input>
+      </FormGroup>
         <FormGroup>
           <Label for="title">Title</Label>
           <Input type="text" name="title" id="title" value={formData.title} onChange={handleChange} />

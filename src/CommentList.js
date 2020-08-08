@@ -12,7 +12,7 @@ function CommentList({ postId, comments }) {
       {comments ?
         <Container>
           {comments.map(comment => (
-            <Row className="my-2">
+            <Row className="my-2" key={comment.id}>
               <CommentCard comment={comment} key={comment.id} postId={postId} />
             </Row>
           ))}
