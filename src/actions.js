@@ -5,6 +5,7 @@ import {
   REMOVE_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
+  UPDATE_COMMENT,
   UPDATE_POST,
   UPDATE_VOTES,
 } from "./actionTypes";
@@ -112,6 +113,25 @@ export function removedComment(postId, commentId) {
   return {
     type: REMOVE_COMMENT,
     payload: { postId, commentId },
+  };
+}
+
+export function updateCommentToApi(postId, commentId, text) {
+  return async function (dispatch) {
+    let res = await axios.put(
+      `http://localhost:5000/api/posts/${postId}/comments/${commentId}`,
+      {
+        text
+      }
+    );
+    dispatch(updatedComment(postId, commentId, res.data));
+  };
+}
+
+export function updatedComment(postId, commentId, comment) {
+  return {
+    type: UPDATE_COMMENT,
+    payload: { postId, commentId, comment },
   };
 }
 
